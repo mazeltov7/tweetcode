@@ -1,0 +1,2 @@
+class BeginnerMessagesController < ApplicationController
+end
