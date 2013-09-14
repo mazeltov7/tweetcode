@@ -36,6 +36,7 @@ gem 'twitter-bootswatch-rails', '2.3.2.8'
 gem 'therubyracer'
 gem 'less-rails', '2.3.3'
 gem 'twitter-bootstrap-rails'
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
