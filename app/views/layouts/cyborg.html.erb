@@ -37,11 +37,51 @@
     <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
+　　　<div class="navbar navbar-fluid-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Tweet & Code</a>
+          <div class="container-fluid nav-collapse">
+            <ul class="nav">
+              <li><%= link_to "Working", "messages#index"  %></li>
+              <li><%= link_to "Error...", "errors#index"  %></li>
+              <li><%= link_to "Relax", "/path3"  %></li>
+            </ul>
+            <div class="pull-right">
+             
+            </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
-    
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Sidebar</li>
+              <li><p>コーディングし始めるとき、</br>作業中などにつぶやく、</br>匿名チャットスペース</p></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <%= bootstrap_flash %>
+    　　　　<%= yield %>
+    　　　</div>
+      </div><!--/row-->
 
+      <footer>
+        <p>&copy; Tweet & Code 2013</p>
+      </footer>
 
-    <%= yield %>
+    </div> <!-- /container -->
+
 
     <!-- Javascripts
     ================================================== -->
