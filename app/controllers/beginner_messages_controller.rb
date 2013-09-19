@@ -7,7 +7,7 @@ class BeginnerMessagesController < ApplicationController
     @messages = BeginnerMessage.all
   end
 
-  def create
+  def create  
     response.headers["Content-Type"] = "text/javascript"
     attributes = params.require(:beginner_message).permit(:body)
     @message = BeginnerMessage.create(attributes)
