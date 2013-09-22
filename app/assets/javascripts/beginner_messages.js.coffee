@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 source = new EventSource('/beginner_messages/events')
+console.log source
 source.addEventListener 'beginner_messages.create', (e) ->
-  beginner_message = $.parseJSON(e.data).beginner_message
+  console.log source
+  beginner_message = $.parseJSON(e.data).message
   $('#chat').append($('<li>').text("#{beginner_message.body}"))

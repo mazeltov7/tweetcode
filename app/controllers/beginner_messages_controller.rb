@@ -18,13 +18,16 @@ class BeginnerMessagesController < ApplicationController
     response.headers["Content-Type"] = "text/event-stream"
     redis = Redis.new
     redis.psubscribe('beginner_messages.*') do |on|
-      on.pbeginner_message do |pattern, event, data|
+      on.pmessage do |pattern, event, data|
         response.stream.write("event: #{event}|n")
         response.stream.write("data: #{data}|n|n")
+        puts 1111
+        puts "#{data}"
       end
     end
   rescue IOError
     logger.info "Stream closed"
+    puts 44444
   ensure
     redis.quit
     response.stream.close
