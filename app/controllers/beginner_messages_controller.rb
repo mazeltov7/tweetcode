@@ -1,17 +1,19 @@
+#coding: utf-8
+
 class BeginnerMessagesController < ApplicationController
-  before_filter :authenticate_user!
+  
 
   include ActionController::Live
 
   def index
-    @messages = BeginnerMessage.all
+    @beginner_messages = BeginnerMessage.all
   end
 
   def create  
     response.headers["Content-Type"] = "text/javascript"
     attributes = params.require(:beginner_message).permit(:body)
-    @message = BeginnerMessage.create(attributes)
-    $redis.publish('beginner_messages.create', @message.to_json)
+    @beginner_message = BeginnerMessage.create(attributes)
+    $redis.publish('beginner_messages.create', @beginner_message.to_json)
   end
 
   def events
@@ -19,15 +21,12 @@ class BeginnerMessagesController < ApplicationController
     redis = Redis.new
     redis.psubscribe('beginner_messages.*') do |on|
       on.pmessage do |pattern, event, data|
-        response.stream.write("event: #{event}|n")
-        response.stream.write("data: #{data}|n|n")
-        puts 1111
-        puts "#{data}"
+        response.stream.write("event: #{event}\n")
+        response.stream.write("data: #{data}\n\n")
       end
     end
   rescue IOError
     logger.info "Stream closed"
-    puts 44444
   ensure
     redis.quit
     response.stream.close
