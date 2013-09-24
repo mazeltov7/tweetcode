@@ -5,4 +5,4 @@
 source = new EventSource('/beginner_messages/events')
 source.addEventListener 'beginner_messages.create', (e) ->
   beginner_message = $.parseJSON(e.data)
-  $('#chat').append($('<li>').text("#{beginner_message.body}"))
+  $('#chat').prepend($('<li>').text("$ #{beginner_message.body}").css("listStyleType","none"))
