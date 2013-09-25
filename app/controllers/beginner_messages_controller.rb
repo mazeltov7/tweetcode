@@ -15,7 +15,12 @@ class BeginnerMessagesController < ApplicationController
     @beginner_message = BeginnerMessage.create(attributes)
     @beginner_message.user = current_user
     @beginner_message.save
-    $redis.publish('beginner_messages.create', @beginner_message.to_json)
+    json_message = @beginner_message.to_json
+    hash_result = JSON.parse(json_message)
+    hash_result[:username] = @beginner_message.user.username
+    hash_result[:created_at] = @beginner_message.created_at.strftime("%H:%M")
+    @json_result = hash_result.to_json
+    $redis.publish('beginner_messages.create', @json_result)
   end
 
   def events
@@ -34,5 +39,5 @@ class BeginnerMessagesController < ApplicationController
     response.stream.close
   end
   
-  
+
 end
