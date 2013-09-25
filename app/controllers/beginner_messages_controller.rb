@@ -13,6 +13,8 @@ class BeginnerMessagesController < ApplicationController
     response.headers["Content-Type"] = "text/javascript"
     attributes = params.require(:beginner_message).permit(:body)
     @beginner_message = BeginnerMessage.create(attributes)
+    @beginner_message.user = current_user
+    @beginner_message.save
     $redis.publish('beginner_messages.create', @beginner_message.to_json)
   end
 
@@ -31,5 +33,6 @@ class BeginnerMessagesController < ApplicationController
     redis.quit
     response.stream.close
   end
+  
   
 end
