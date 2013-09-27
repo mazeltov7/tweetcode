@@ -1,12 +1,16 @@
 Tweetcode::Application.routes.draw do
   devise_for :users
 
-  authenticate do
     root :to => "beginner_messages#index"
     resources :beginner_messages do
       collection { get :events }
     end
-  end
+
+  match "auth/:provider/callback" => "sessions#callback", :via => :get
+  match "/logout" => "sessions#destroy", :via => :get, :as => :logout
+  
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

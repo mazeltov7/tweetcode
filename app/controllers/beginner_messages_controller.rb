@@ -1,7 +1,6 @@
 #coding: utf-8
 
 class BeginnerMessagesController < ApplicationController
-  before_action :authenticate_user!
 
   include ActionController::Live
 
