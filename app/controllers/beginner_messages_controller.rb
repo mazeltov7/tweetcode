@@ -6,6 +6,13 @@ class BeginnerMessagesController < ApplicationController
 
   def index
     @beginner_messages = BeginnerMessage.all.order("created_at DESC")
+  
+    if current_user
+    puts 999
+    else
+      puts 222
+    end
+    puts "#{session[:user_id]}"
   end
 
   def create  

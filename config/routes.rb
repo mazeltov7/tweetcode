@@ -1,5 +1,4 @@
 Tweetcode::Application.routes.draw do
-  devise_for :users
 
     root :to => "beginner_messages#index"
     resources :beginner_messages do
@@ -8,7 +7,7 @@ Tweetcode::Application.routes.draw do
 
   match "auth/:provider/callback" => "sessions#callback", :via => :get
   match "/logout" => "sessions#destroy", :via => :get, :as => :logout
-  
+
 
 
 

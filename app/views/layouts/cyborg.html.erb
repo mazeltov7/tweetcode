@@ -53,8 +53,8 @@
               <li><%= link_to "Relax", "/path3"  %></li>
             </ul>
             <div class="pull-right">
-              <% if user_signed_in? %>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => "btn" %>
+              <% if current_user %>
+                <%= link_to "ログアウト", "/logout", :class => "btn" %>
               <% else %>
                 <%= link_to "twitterでログイン", "/auth/twitter", :class => "btn" %>
               <% end %>

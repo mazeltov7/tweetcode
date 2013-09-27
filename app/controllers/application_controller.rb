@@ -5,12 +5,11 @@ class ApplicationController < ActionController::Base
 
   layout 'cyborg'
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  helper_method :current_user
 
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :username
+  private
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
 
