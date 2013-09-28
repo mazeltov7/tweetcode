@@ -21,8 +21,10 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database:tweetcode_development 
+  database: dcdcla0b59saqs
+  host: ec2-54-221-199-33.compute-1.amazonaws.com
   pool: 5
   timeout: 5000
-  username: root
-  password:
+  port: 5432
+  username: ymprmqffgxzmvd
+  password: Sa_cfyFQ7EQqWIsMNOViZg9SmT
