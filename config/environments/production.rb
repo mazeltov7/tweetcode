@@ -59,7 +59,7 @@ Tweetcode::Application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-   config.assets.precompile += %w( cyborg.js beginner_messages.js.coffee cyborg.css )
+   config.assets.precompile += %w( cyborg.js cyborg.css )
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
