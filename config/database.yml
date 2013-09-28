@@ -24,5 +24,3 @@ production:
   database:tweetcode_development 
   pool: 5
   timeout: 5000
-  username:
-  password:
