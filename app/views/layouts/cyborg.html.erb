@@ -54,9 +54,27 @@
             </ul>
             <div class="pull-right">
               <% if current_user %>
-                <%= link_to "ログアウト", "/logout", :class => "btn" %>
+              <div class="btn-group">
+                <button class="btn"><%= current_user.username%></button>
+                <button class="btn dropdwon-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to "ログアウト", "/logout", :class => "btn" %>
+                  </li>
+                </ul>
+              </div>
               <% else %>
-                <%= link_to "twitterでログイン", "/auth/twitter", :class => "btn" %>
+              <div class="btn-group">
+                <button class="btn">ログイン</button>
+                <button class="bun dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to "twitterでログイン", "/auth/twitter", :class => "btn" %>
+                  </li>
+                  <li>
+                    <p>github</p>
+                  </li>
+                </ul>
               <% end %>
             </div>
           </div><!--/.nav-collapse -->
