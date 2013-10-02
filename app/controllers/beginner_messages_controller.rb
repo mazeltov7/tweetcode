@@ -1,4 +1,4 @@
-#coding: utf-8
+  #coding: utf-8
 
 class BeginnerMessagesController < ApplicationController
 
@@ -6,13 +6,6 @@ class BeginnerMessagesController < ApplicationController
 
   def index
     @beginner_messages = BeginnerMessage.all.order("created_at DESC")
-  
-    if current_user
-    puts 999
-    else
-      puts 222
-    end
-    puts "#{session[:user_id]}"
   end
 
   def create  
@@ -21,6 +14,7 @@ class BeginnerMessagesController < ApplicationController
     @beginner_message = BeginnerMessage.create(attributes)
     @beginner_message.user = current_user
     @beginner_message.save
+
     json_message = @beginner_message.to_json
     hash_result = JSON.parse(json_message)
     hash_result[:username] = @beginner_message.user.username
@@ -29,7 +23,7 @@ class BeginnerMessagesController < ApplicationController
     $redis.publish('beginner_messages.create', @json_result)
   end
 
-  def events
+  def event-stream
     response.headers["Content-Type"] = "text/event-stream"
     redis = Redis.new
     redis.psubscribe('beginner_messages.*') do |on|
