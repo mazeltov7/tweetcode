@@ -23,7 +23,7 @@ class BeginnerMessagesController < ApplicationController
     $redis.publish('beginner_messages.create', @json_result)
   end
 
-  def event-stream
+  def events
     response.headers["Content-Type"] = "text/event-stream"
     redis = Redis.new
     redis.psubscribe('beginner_messages.*') do |on|
