@@ -1,9 +1,4 @@
 
-<%= form_for BeginnerMessage.new, remote: true do |f| %>
-  <%= f.text_field :body %>
-  <%= f.submit "Send", :class =>'btn' %>
-<% end %>
-
 <ul id="chat">
   <%= render @beginner_messages %>
 </ul>
