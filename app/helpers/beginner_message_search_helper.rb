@@ -1,0 +1,2 @@
+module BeginnerMessageSearchHelper
+end

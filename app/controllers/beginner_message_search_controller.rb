@@ -1,0 +1,2 @@
+class BeginnerMessageSearchController < ApplicationController
+end

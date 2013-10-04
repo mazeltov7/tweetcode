@@ -5,6 +5,8 @@ Tweetcode::Application.routes.draw do
       collection { get :events }
     end
 
+    resources :beginner_message_search, :only =>[:index]
+
   match "auth/:provider/callback" => "sessions#callback", :via => :get
   match "/logout" => "sessions#destroy", :via => :get, :as => :logout
 
