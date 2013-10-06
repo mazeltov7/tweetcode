@@ -49,16 +49,16 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Working", "beginner_messages#index"  %></li>
-              <li><%= link_to "Error...", "errors#index"  %></li>
-              <li><%= link_to "Relax", "/path3"  %></li>
+              <li><%= link_to "Error...", "#"  %></li>
+              <li><%= link_to "Relax", "#"  %></li>
             </ul>
 
-            <%= form_tag beginner_message_search_index_path, method: :get do %>
-              <p>
-                <%= text_field_tag :query, params[:query] %>
-                <%= submit_tag "Search", name: nil, :class=>"btn" %>
-              </p>
-            <% end %>
+            <div id="search-form-box">
+              <%= form_tag beginner_message_search_index_path, method: :get, :class=>"navbar-search" do %>
+                  <%= text_field_tag :query, params[:query], :placeholder=>"Search" %>
+                  <%= submit_tag "Search", name: nil, :class=>"btn" %>
+              <% end %>
+            </div>
 
             
 
@@ -120,20 +120,34 @@
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
               <li><p>コーディングし始めるとき、</br>作業中などにつぶやく、</br>チャットスペース</p></li>
+
             </ul>
           </div><!--/.well -->
+          <div class="well sidebar-nav">
+              <ul class="nav nav-list">              
+                <li class="nav-header">&copy; Tweet & Code 2013</li>
+                <li>(リニューアルのため、10/13にデータリセットします)</li>
+                <!-- 管理人です。
+                Tweet&Code は、「今どんなコードを書いてるか」を軸に、世界中のエンジニアをつなげる情報交換ツールです。 
+                より多くの人が、より効率的にコードをかいて、creationすることへの貢献を目指してます。
+                　興味ありましたら、管理人: tweet8code@gmail.com までご連絡下さい！
+                (-ω☆)ｷﾗﾘ -->
+              </ul>
+          </div>
         </div><!--/span-->
+
         <div class="span9">
           <%= bootstrap_flash %>
     　　　　<%= yield %>
     　　　</div>
       </div><!--/row-->
-
-      <footer>
-        <p>&copy; Tweet & Code 2013</p>
-      </footer>
-
     </div> <!-- /container -->
+
+
+
+
+
+
 
 
     <!-- Javascripts
