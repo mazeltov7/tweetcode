@@ -53,18 +53,18 @@
               <li><%= link_to "Relax", "#"  %></li>
             </ul>
 
-            <div id="search-form-box">
               <%= form_tag beginner_message_search_index_path, method: :get, :class=>"navbar-search" do %>
-                  <%= text_field_tag :query, params[:query], :placeholder=>"Search" %>
+                <div class="input-append">
+                  <%= text_field_tag :query, params[:query], :placeholder=>"Search",:class=>"input-medium search-query" %>
                   <%= submit_tag "Search", name: nil, :class=>"btn" %>
+                </div>
               <% end %>
-            </div>
 
-            
+            <% if current_user %>
 
             <div class="pull-right">
 
-              <a href="#myModal" class="btn btn-primary" data-toggle="modal" data-backdrop="true">記入</a>
+              <a href="#myModal" class="btn btn-primary" data-toggle="modal" data-backdrop="true"><i class="icon-pencil"></i></a>
 
             <div id="myModal" class="modal hide fade" style="width: 400px">
               <div class="modal-header">
@@ -84,30 +84,38 @@
 
 
 
-              <% if current_user %>
               <div class="btn-group">
                 <button class="btn"><%= current_user.username %></button>
                 <button class="btn dropdwon-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li>
-                    <%= link_to "ログアウト", "/logout", :class => "btn" %>
+                    <%= link_to "/logout" do %>
+                      <small>ログアウト</small>
+                    <% end %>
                   </li>
                 </ul>
               </div>
               <% else %>
+
+              <div class="pull-right">
+
               <div class="btn-group">
-                <button class="btn">ログイン</button>
-                <button class="bun dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><small>ログイン</small>
+                <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li>
-                    <%= link_to "twitterでログイン", "/auth/twitter", :class => "btn" %>
+                    <%= link_to "/auth/twitter" do %>
+                      <small>Twitterでログイン</small>
+                    <% end %>
                   </li>
                   <li>
-                    <p>github</p>
+                    <%= link_to "#" do %>
+                      <small>GitHubでログイン</small>
+                    <% end %>
                   </li>
                 </ul>
               <% end %>
-            </div>
+            </div><!-- btn-group -->
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -118,7 +126,7 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
+              <li class="nav-header">Description</li>
               <li><p>コーディングし始めるとき、</br>作業中などにつぶやく、</br>チャットスペース</p></li>
 
             </ul>
@@ -126,7 +134,7 @@
           <div class="well sidebar-nav">
               <ul class="nav nav-list">              
                 <li class="nav-header">&copy; Tweet & Code 2013</li>
-                <li>(リニューアルのため、10/13にデータリセットします)</li>
+                <li><small>(リニューアルのため、10/13にデータリセットします)</small></li>
                 <!-- 管理人です。
                 Tweet&Code は、「今どんなコードを書いてるか」を軸に、世界中のエンジニアをつなげる情報交換ツールです。 
                 より多くの人が、より効率的にコードをかいて、creationすることへの貢献を目指してます。
