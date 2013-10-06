@@ -73,7 +73,7 @@
               </div>
               <div class="modal-body" style="height: 80px">
                <%= form_for BeginnerMessage.new, remote: true do |f| %>
-    　　　　　　　　<%= f.text_area :body, :rows=>3, :class=>"span4" %>
+    　　　　　　　　<%= f.text_area :body, :rows=>3, :class=>"span4", :placeholder=>"I'm Working on ..." %>
               </div>
               <div class="modal-footer">
                 <%= f.submit "Send", :class =>'btn' %>
