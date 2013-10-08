@@ -29,11 +29,13 @@ class BeginnerMessagesController < ApplicationController
     redis = Redis.new
     redis.psubscribe('beginner_messages.*') do |on|
       if Rails.env.production?
-        messages = BeginnerMessage.where('created_at > ?', Time.current-1)
+        messages = BeginnerMessage.where('created_at > ?', Time.current-10)
+        puts "-----"
+        puts messages.inspect
         messages.each do |me|
-        response.stream.write("event: 'beginner_messages.create'\n")
-        response.stream.write("data: #{me}\n\n")
-      end
+          response.stream.write("event: 'beginner_messages.create'\n")
+          response.stream.write("data: #{me}\n\n")
+        end
       else
         on.pmessage do |pattern, event, data|
           response.stream.write("event: #{event}\n")
