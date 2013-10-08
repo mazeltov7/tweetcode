@@ -37,8 +37,8 @@ class BeginnerMessagesController < ApplicationController
           puts "#{me}"
           json_mee = me.to_json
           hash_mee = JSON.parse(json_mee)
-          hash_mee[:username] = messages.user.username
-          hase_mee[:created_at] = messages.created_at.strftime("%H:%M")
+          hash_mee[:username] = me.user.username
+          hase_mee[:created_at] = me.created_at.strftime("%H:%M")
           me_result = hash_mee.to_json
           response.stream.write("event: 'beginner_messages.create'\n")
           response.stream.write("data: #{me_result}\n\n")
