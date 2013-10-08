@@ -33,8 +33,13 @@ class BeginnerMessagesController < ApplicationController
         puts "-----"
         puts messages.inspect
         messages.each do |me|
+          json_mee = me.to_json
+          hash_mee = JSON.parse(json_mee)
+          hash_mee[:username] = @beginner_message.user.username
+          hase_mee[:created_at] = @beginner_message.created_at.strftime("%H:%M")
+          me_result = hash_mee.to_json
           response.stream.write("event: 'beginner_messages.create'\n")
-          response.stream.write("data: #{me.to_json}\n\n")
+          response.stream.write("data: #{me_result}\n\n")
         end
       else
         on.pmessage do |pattern, event, data|
