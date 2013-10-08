@@ -42,6 +42,9 @@ class BeginnerMessagesController < ApplicationController
           me_result = hash_mee.to_json
           response.stream.write("event: 'beginner_messages.create'\n")
           response.stream.write("data: #{me_result}\n\n")
+          puts "555"
+          puts response.stream.write("data: #{me_result}\n\n")
+"
         end
       else
         on.pmessage do |pattern, event, data|
