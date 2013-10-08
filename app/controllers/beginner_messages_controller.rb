@@ -22,13 +22,16 @@ class BeginnerMessagesController < ApplicationController
     hash_result[:created_at] = @beginner_message.created_at.strftime("%H:%M")
     @json_result = hash_result.to_json
     $redis.publish('beginner_messages.create', @json_result)
+    puts "-------1--------"
   end
 
   def events
     response.headers["Content-Type"] = "text/event-stream"
     redis = Redis.new
     redis.psubscribe('beginner_messages.*') do |on|
+      puts "-------2--------"
       on.pmessage do |pattern, event, data|
+        puts "-------3--------"
         response.stream.write("event: #{event}\n")
         response.stream.write("data: #{data}\n\n")
       end
