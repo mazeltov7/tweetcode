@@ -34,7 +34,7 @@ class BeginnerMessagesController < ApplicationController
         puts messages.inspect
         messages.each do |me|
           response.stream.write("event: 'beginner_messages.create'\n")
-          response.stream.write("data: #{me}\n\n")
+          response.stream.write("data: #{me.to_json}\n\n")
         end
       else
         on.pmessage do |pattern, event, data|
