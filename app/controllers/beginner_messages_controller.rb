@@ -40,13 +40,17 @@ class BeginnerMessagesController < ApplicationController
           hash_mee[:username] = me.user.username
           hase_mee[:created_at] = me.created_at.strftime("%H:%M")
           me_result = hash_mee.to_json
+          puts "222"
+          puts "#{me_result}"
           response.stream.write("event: 'beginner_messages.create'\n")
           response.stream.write("data: #{me_result}\n\n")
           puts "555"
-          puts response.stream.write("data: #{me_result}\n\n")
 
         end
       else
+        puts "888"
+        puts "#{on.message}"
+        puts "8"
         on.pmessage do |pattern, event, data|
           response.stream.write("event: #{event}\n")
           response.stream.write("data: #{data}\n\n")
