@@ -38,6 +38,7 @@ class BeginnerMessagesController < ApplicationController
           hash_mee = JSON.parse(json_mee)
           hash_mee[:username] = me.user.username
           hash_mee[:created_at] = me.created_at.strftime("%H:%M")
+          puts "5"
           puts "#{hash_mee}"
           puts "22"
           me_result = hash_mee.to_json
