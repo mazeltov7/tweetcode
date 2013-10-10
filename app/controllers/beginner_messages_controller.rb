@@ -33,10 +33,10 @@ class BeginnerMessagesController < ApplicationController
         puts "-----"
         puts messages.inspect
         messages.each do |me|
-          puts "999"
-          puts "#{me}"
           puts "111"
           json_mee = me.to_json
+          puts "json_mee"
+          puts "22"
           hash_mee = JSON.parse(json_mee)
           hash_mee[:username] = me.user.username
           hase_mee[:created_at] = me.created_at.strftime("%H:%M")
