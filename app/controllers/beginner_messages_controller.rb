@@ -6,6 +6,7 @@ class BeginnerMessagesController < ApplicationController
 
   def index
     @beginner_messages = BeginnerMessage.all.order("created_at DESC")
+    puts @beginner_messages.inspect
    
   end
 
