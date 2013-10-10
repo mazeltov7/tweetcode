@@ -35,6 +35,7 @@ class BeginnerMessagesController < ApplicationController
         messages.each do |me|
           puts "999"
           puts "#{me}"
+          puts "111"
           json_mee = me.to_json
           hash_mee = JSON.parse(json_mee)
           hash_mee[:username] = me.user.username
