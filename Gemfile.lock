@@ -87,6 +87,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.0)
     multipart-post (1.2.0)
+    mysql2 (0.3.13)
     oauth (0.4.7)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
@@ -189,6 +190,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   less-rails (= 2.3.3)
+  mysql2
   omniauth
   omniauth-twitter
   pg

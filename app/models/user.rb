@@ -8,5 +8,4 @@ class User < ActiveRecord::Base
       user.username = auth["info"]["nickname"]
     end
   end
-
 end

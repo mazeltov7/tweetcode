@@ -46,6 +46,7 @@ gem 'omniauth-twitter'
 
 gem 'pg'
 gem 'tweetstream'
+gem 'mysql2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -4,30 +4,31 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: tweetcode_development
   host: localhost
   pool: 5
-  username: ishikawayuki2
+  username: root
+  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: tweetcode_test
   host: localhost
   pool: 5
-  username: ishikawayuki2
+  username: root
+  password:
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: dcdcla0b59saqs
-  host: ec2-54-221-199-33.compute-1.amazonaws.com
+  adapter: mysql2
+  encoding: utf8
+  database: 
+  host: 
   pool: 5
-  port: 5432
-  username: ymprmqffgxzmvd
-  password: Sa_cfyFQ7EQqWIsMNOViZg9SmT
+  username: 
+  password: 
