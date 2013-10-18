@@ -2,7 +2,7 @@ Tweetcode::Application.routes.draw do
 
     root :to => "beginner_messages#index"
     resources :beginner_messages do
-      collection {get :event}
+      collection { get :events }
     end
 
     resources :beginner_message_search, :only =>[:index]
