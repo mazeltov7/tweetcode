@@ -19,7 +19,7 @@ class BeginnerMessagesController < ApplicationController
     hash_result[:username] = @beginner_message.user.username
     hash_result[:created_at] = @beginner_message.created_at.strftime("%H:%M")
     @json_result = hash_result.to_json
-    redis.publish('beginner_messages.create', @json_result)
+    $redis.publish('beginner_messages.create', @json_result)
   end
 
   def events
