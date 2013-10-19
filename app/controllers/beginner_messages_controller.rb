@@ -2,6 +2,7 @@
 
 class BeginnerMessagesController < ApplicationController
 
+  include ActionController::Live
 
   def index
     @beginner_messages = BeginnerMessage.all.order("created_at DESC")
@@ -23,7 +24,7 @@ class BeginnerMessagesController < ApplicationController
   end
 
   def events
-    response.headers["Content-Type"] = "text/javascript"
+    response.headers["Content-Type"] = "text/event-stream"
     redis = Redis.new
     redis.psubscribe('beginner_messages.*') do |on|
       on.pmessage do |pattern, event, data|
