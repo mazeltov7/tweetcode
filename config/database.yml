@@ -27,8 +27,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: heroku_f6ea1a25de88f8c
-  host: us-cdbr-east-04.cleardb.com
+  database: 
+  host: 
   pool: 5
-  username: b5668ea6097aab
-  password: 2f74d000
+  username: root
+  password: 
