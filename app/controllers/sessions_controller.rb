@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user
     
     session[:user_id] = user.id
-    redirect_to root_url, :notice => "ログインしました。"
+    redirect_to edit_user_path(current_user.id), :notice => "ログインしました。"
     else
       user = User.create_with_omniauth(auth)
       session[:user_id] = user.id
