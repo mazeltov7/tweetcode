@@ -6,6 +6,7 @@ Tweetcode::Application.routes.draw do
     end
 
     resources :beginner_message_search, :only =>[:index]
+    resources :users, :except => [:index, :new, :create]
 
   match "auth/:provider/callback" => "sessions#callback", :via => :get
   match "/logout" => "sessions#destroy", :via => :get, :as => :logout
