@@ -10,8 +10,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+
     respond_to do |format|
       if @user.update(user_params)
+        BeginnerMessage.create(body: 'hello world', user: current_user)
         format.html { redirect_to root_url, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -28,5 +30,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :status, :profile)
   end
+
 
 end
