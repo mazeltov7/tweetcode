@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Tweet & Code</a>
+          <a class="brand" href="tweet-code.com">Tweet & Code</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Working", "beginner_messages#index"  %></li>
@@ -85,7 +85,7 @@
 
 
               <div class="btn-group">
-                <button class="btn"><%= current_user.username %></button>
+                <button class="btn"><%= link_to current_user.username, edit_user_path(current_user.id) %></button>
                 <button class="btn dropdwon-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li>

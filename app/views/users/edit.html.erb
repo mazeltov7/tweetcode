@@ -5,14 +5,18 @@
 
   <div class="form_inputs">
     <%= f.input :username, :required => true, label: 'nickname' %>
-    <%= f.input :status, label: '今実装している機能など'  %>
+    <%= f.input :status, :required => true, label: '今実装している機能など'  %>
     <%= f.input :profile %>
-    <%= f.simple_fields_for :beginner_messages do |p| %>
-      <%= p.input :body, as: :hidden, input_html: { value: 'Hello World!'} %>
-    <% end %>
   </div>
 
-  <div class="form_actions">
-    <%= f.button :submit, 'Hello world!' %>
-  </div>
+  <% if @user.status == nil %>
+    <div class="form_actions">
+      <%= f.button :submit, 'Hello world!' %>
+    </div>
+  <% else %>
+    <div class="form_actions">
+      <%= f.button :submit, '変更を保存' %>
+    </div>
+  <% end %>
+
 <% end %>
