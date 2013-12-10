@@ -85,7 +85,7 @@
 
 
               <div class="btn-group">
-                <button class="btn"><%= current_user.username %></button>
+                <button class="btn"><%= link_to current_user.username, edit_user_path(current_user.id) %></button>
                 <button class="btn dropdwon-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li>

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :beginner_messages
   validates :username, presence: true
+  validates :status, presence: true
 
   def self.create_with_omniauth(auth)
     create! do |user|

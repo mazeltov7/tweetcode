@@ -4,12 +4,20 @@
   
 
   <div class="form_inputs">
-    <%= f.input :username, :required => true %>
-    <%= f.input :status %>
+    <%= f.input :username, :required => true, label: 'nickname' %>
+    <%= f.input :status, label: '今実装している機能など', required: true %>
     <%= f.input :profile %>
   </div>
 
-  <div class="form_actions">
-    <%= f.button :submit %>
-  </div>
+  <% if @user.status == nil %>
+    <div class="form_actions">
+      <%= f.button :submit, 'Hello world' %>
+    </div>
+
+  <% else %>
+    <div class="form_actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+
 <% end %>

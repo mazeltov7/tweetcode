@@ -11,7 +11,7 @@ class BeginnerMessagesController < ApplicationController
 
   def create  
     response.headers["Content-Type"] = "text/javascript"
-    @beginner_message = BeginnerMessage.create(attributes)
+    @beginner_message = BeginnerMessage.create!(attributes)
     @beginner_message.user = current_user
     @beginner_message.save
 
@@ -19,6 +19,7 @@ class BeginnerMessagesController < ApplicationController
     hash_result = JSON.parse(json_message)
     hash_result[:username] = @beginner_message.user.username
     hash_result[:created_at] = @beginner_message.created_at.strftime("%H:%M")
+    hash_result[:status] = @beginner_message.user.status
     @json_result = hash_result.to_json
     $redis.publish('beginner_messages.create', @json_result)
   end
@@ -45,6 +46,7 @@ class BeginnerMessagesController < ApplicationController
   def attributes
     params.require(:beginner_message).permit(:body, :created_at)
   end
+
   
 
 end
