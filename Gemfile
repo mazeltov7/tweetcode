@@ -46,7 +46,6 @@ gem 'omniauth-twitter'
 gem 'simple_form' , ">= 3.0.0rc"
 
 
-gem 'pg'
 gem 'tweetstream'
 gem 'mysql2'
 
