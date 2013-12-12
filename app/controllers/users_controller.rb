@@ -12,9 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        if @user.status == nil
           BeginnerMessage.create(body: 'Hello World', user: current_user)
-        end
         format.html { redirect_to root_url }
         format.json { head :no_content }
       else

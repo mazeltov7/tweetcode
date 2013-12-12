@@ -9,15 +9,10 @@
     <%= f.input :profile %>
   </div>
 
-  <% if @user.status == nil %>
+
     <div class="form_actions">
       <%= f.button :submit, 'Hello world' %>
     </div>
 
-  <% else %>
-    <div class="form_actions">
-      <%= f.button :submit %>
-    </div>
-  <% end %>
 
 <% end %>
