@@ -49,8 +49,13 @@ gem 'simple_form' , ">= 3.0.0rc"
 gem 'tweetstream'
 gem 'mysql2'
 
-gem 'pry-rails', :group => :development
-gem 'pry-debugger', '~> 0.2.2'
+group :development do
+  gem 'pry-rails'
+  gem 'pry-debugger', '~> 0.2.2'
+  gem 'capistrano', '~> 3.0.1'
+  gem 'capistrano-rails'
+end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
