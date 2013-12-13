@@ -1,9 +1,9 @@
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'tweet-code.com'
+set :repo_url, 'git@bitbucket.org:mazeltov7/vtweetcode.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-# set :deploy_to, '/var/www/my_app'
+ set :deploy_to, '/var/www/vtweetcode'
 # set :scm, :git
 
 # set :format, :pretty
@@ -14,7 +14,7 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
-# set :keep_releases, 5
+ set :keep_releases, 5
 
 namespace :deploy do
 
