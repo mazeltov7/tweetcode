@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/capistrano/rbenv.git
+  revision: d3ced5e51fa2b25e96ad748578734c38929640df
+  specs:
+    capistrano-rbenv (2.0.0)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -228,6 +236,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano (~> 3.0.1)
   capistrano-rails
+  capistrano-rbenv!
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)

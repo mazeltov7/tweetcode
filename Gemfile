@@ -54,6 +54,7 @@ group :development do
   gem 'pry-debugger', '~> 0.2.2'
   gem 'capistrano', '~> 3.0.1'
   gem 'capistrano-rails'
+  gem 'capistrano-rbenv', github: "capistrano/rbenv"
 end
 
 

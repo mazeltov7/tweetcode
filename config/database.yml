@@ -31,4 +31,4 @@ production:
   host: 
   pool: 20
   username: root
-  password: 
+  password: a041206b
