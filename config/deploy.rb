@@ -1,9 +1,16 @@
+
 set :application, 'tweet-code.com'
 set :repo_url, 'git@bitbucket.org:mazeltov7/vtweetcode.git'
+set :user, 'yuki'
+
+set :use_sudo, true
+set :branch, 'master'
+
+
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
- set :deploy_to, '/var/www/vtweetcode'
+ set :deploy_to, '/usr/share/nginx/www/vtweetcode'
 # set :scm, :git
 
 # set :format, :pretty
@@ -16,13 +23,17 @@ set :repo_url, 'git@bitbucket.org:mazeltov7/vtweetcode.git'
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
  set :keep_releases, 5
 
+
+
 namespace :deploy do
+
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
+
     end
   end
 
