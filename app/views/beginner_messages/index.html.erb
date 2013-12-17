@@ -1,7 +1,15 @@
+<div>
+  <% if current_user %>
+    <%= form_for BeginnerMessage.new, remote: true do |f| %>
+      <%= f.text_area :body %>
+      <%= f.submit "Send", :class=>'btn' %>
+    <% end %>
+  <% end %>
+</div>
 
 
-
-<ul id="chat">
-  <%= render @beginner_messages %>
-</ul>
-
+<div>
+  <ul id="chat">
+    <%= render @beginner_messages %>
+  </ul>
+</div>
