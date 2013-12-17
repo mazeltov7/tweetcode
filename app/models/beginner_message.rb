@@ -2,6 +2,10 @@
 
 class BeginnerMessage < ActiveRecord::Base
   belongs_to :user
+  validates :body,
+    presence: true,
+    length: {maximum: 140}
+    
 
   def self.text_search(query)
     if query.present?
