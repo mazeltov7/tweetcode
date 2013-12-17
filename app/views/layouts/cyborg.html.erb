@@ -53,12 +53,7 @@
               <li><%= link_to "Relax", "#"  %></li>
             </ul>
 
-              <%= form_tag beginner_message_search_index_path, method: :get, :class=>"navbar-search" do %>
-                <div class="input-append">
-                  <%= text_field_tag :query, params[:query], :placeholder=>"Search",:class=>"input-medium search-query" %>
-                  <%= submit_tag "Search", name: nil, :class=>"btn" %>
-                </div>
-              <% end %>
+
 
             <% if current_user %>
 
