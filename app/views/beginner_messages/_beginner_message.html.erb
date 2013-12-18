@@ -1,5 +1,5 @@
-<li style="list-style-type:none">
-  <%= beginner_message.user.username %> (<%= beginner_message.user.status %>)
-  $ <%= beginner_message.body %>
-  <span class="created_at"><%= beginner_message.created_at.strftime("%H:%M") %></span>
-</li>
+<tr>
+  <td><%= beginner_message.user.username %></td> <td>(<%= beginner_message.user.status %>)
+  $</td> <td><%= beginner_message.body %></td>
+  <td><span class="created_at"><%= beginner_message.created_at.strftime("%H:%M") %></span></td>
+</tr>
