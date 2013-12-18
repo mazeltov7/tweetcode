@@ -1,5 +1,5 @@
-<tr>
-  <td><%= beginner_message.user.username %></td> <td>(<%= beginner_message.user.status %>)
-  $</td> <td><%= beginner_message.body %></td>
-  <td><span class="created_at"><%= beginner_message.created_at.strftime("%H:%M") %></span></td>
-</tr>
+  <tr>
+    <td class="text-success"><%= beginner_message.user.username %></td> <td class="text-info">(<%= beginner_message.user.status %>)</td>
+    <td>$ <%= beginner_message.body %></td>
+    <td class="text-warning"><span class="created_at"><%= beginner_message.created_at.strftime("%H:%M") %></span></td>
+  </tr>

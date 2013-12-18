@@ -1,8 +1,8 @@
 <div>
   <% if current_user %>
     <%= form_for BeginnerMessage.new, remote: true do |f| %>
-      <%= f.text_area :body %>
-      <%= f.submit "Send", :class=>'btn' %>
+      <%= f.text_area :body, :class=>'form_control' %>
+      <%= f.submit "Send", :class=>'btn btn-primary' %>
     <% end %>
   <% end %>
 </div>
@@ -10,8 +10,6 @@
 
 <div>
   <table>
-  <tr>
     <%= render @beginner_messages %>
-  </tr>
   </table>
 </div>
