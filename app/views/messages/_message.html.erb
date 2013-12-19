@@ -1,0 +1,5 @@
+  <tr>
+    <td class="text-success"><%= message.user.username %></td> <td class="text-info">(<%= message.user.status %>)</td>
+    <td>$ <%= message.body %></td>
+    <td class="text-warning"><span class="created_at"><%= message.created_at.strftime("%H:%M") %></span></td>
+  </tr>

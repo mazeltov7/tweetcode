@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @room.name %>
+
+  <strong>Description</strong>
+  <%= @room.description %>
+</p>
+
+<div>
+    <%= form_for Message.new, :url=>room_messages_path, remote: true do |f| %>
+      <%= f.text_area :body, :class=>'form_control' %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.submit "Send", :class=>'btn btn-primary' %>
+    <% end %>
+</div>
+
+<div>
+  <table id="chat">
+    <%= render @messages %>
+  </table>
+</div>

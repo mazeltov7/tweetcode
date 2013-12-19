@@ -48,7 +48,7 @@
           <a class="brand" href="http://tweet-code.com:3000">Tweet & Code</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Working", beginner_messages_path  %></li>
+              <li><%= link_to "Working", "#"  %></li>
               <li><%= link_to "Error...", "#"  %></li>
               <li><%= link_to "Relax", "#"  %></li>
             </ul>
@@ -59,23 +59,7 @@
 
             <div class="pull-right">
 
-              <a href="#myModal" class="btn btn-primary" data-toggle="modal" data-backdrop="true"><i class="icon-pencil"></i></a>
-
-            <div id="myModal" class="modal hide fade" style="width: 400px">
-              <div class="modal-header">
-                <a href="#" class="close" data-dismiss="modal">&times;</a>
-                <h3>what are you doing?</h3>
-              </div>
-              <div class="modal-body" style="height: 80px">
-               <%= form_for BeginnerMessage.new, remote: true do |f| %>
-    　　　　　　　　<%= f.text_area :body, :rows=>3, :class=>"span4", :placeholder=>"I'm Working on ..." %>
-              </div>
-              <div class="modal-footer">
-                <%= f.submit "Send", :class =>'btn' %>
-                <% end %> 
-                <a href="#" class="btn" data-dismiss="modal">戻る</a>
-              </div>
-            </div>
+              
 
 
 
@@ -129,7 +113,7 @@
           <div class="well sidebar-nav">
               <ul class="nav nav-list">              
                 <li class="nav-header">&copy; Tweet & Code 2013</li>
-                <li><small>(リニューアルのため、突然データリセットすることがあります)</small></li>
+                <li><small>(リニューアルのため、突然データリセットすることが)</small></li>
                 <!-- 管理人です。
                 Tweet&Code は、「今どんなコードを書いてるか」を軸に、世界中のエンジニアをつなげる情報交換ツールです。 
                 より多くの人が、より効率的にコードをかいて、creationすることへの貢献を目指してます。

@@ -1,9 +1,13 @@
 Tweetcode::Application.routes.draw do
 
-    root :to => "beginner_messages#index"
-    resources :beginner_messages do
-      collection { get :events }
+    root :to => "rooms#index"
+
+    resources :rooms do
+      resources :messages do
+        collection { get :events }
+      end
     end
+
 
     resources :beginner_message_search, :only =>[:index]
     resources :users, :except => [:index, :new, :create]
