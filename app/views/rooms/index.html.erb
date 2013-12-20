@@ -1,6 +1,6 @@
 <h1>Room Select</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,11 +14,16 @@
   <tbody>
     <% @rooms.each do |room| %>
     <tr>
-      <td><%= room.name %></td>
-      <td><%= room.description %></td>
-      <td><%= link_to 'show', room %></td>
-      <td><%= link_to 'edit', edit_room_path(room) %></td>
-      <td><%= link_to 'destroy', room, method: :delete, data: {confirm: 'Are you really sure?'} %></td>
+      <td class="text-success"><strong><%=link_to room.name, room_messages_path(room) %></strong></td>
+      <td class="text-success"><%= room.description %></td>
+      <td><%= link_to 'Details', room %></td>
+      <% if current_user == room.user %>
+        <td><%= link_to 'Edit', edit_room_path(room) %></td>
+        <td><%= link_to 'Destroy', room, method: :delete, data: {confirm: 'Are you really sure?'} %></td>
+      <% else %>
+        <td></td>
+        <td></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>
@@ -26,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Room', new_room_path %>
+<%= link_to 'Create New Room', new_room_path %>

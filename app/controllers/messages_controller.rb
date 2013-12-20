@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   include ActionController::Live
 
   def index
-    @messages = Message.all.order("created_at DESC")
+    @messages = Message.where(:room_id=>params[:room_id]).order("created_at DESC")
     @room = Room.find(params[:room_id])
   end
 

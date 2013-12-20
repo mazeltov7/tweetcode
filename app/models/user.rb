@@ -3,6 +3,7 @@
 
 class User < ActiveRecord::Base
   has_many :beginner_messages
+  has_many :rooms
   validates :username,
     presence: true,
     length: {minimum: 1, maximum: 20}
