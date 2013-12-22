@@ -1,7 +1,7 @@
 
 set :application, 'tweet-code.com'
 set :repo_url, 'git@bitbucket.org:mazeltov7/vtweetcode.git'
-set :user, 'yuki'
+set :user, 'deploy'
 
 set :branch, 'master'
 
