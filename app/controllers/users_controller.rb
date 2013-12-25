@@ -10,16 +10,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    respond_to do |format|
       if @user.update(user_params)
-          BeginnerMessage.create(body: 'Hello World', user: current_user)
-        format.html { redirect_to root_url }
-        format.json { head :no_content }
+          Message.create(body: 'Hello World', user: current_user, room_id: '1')
+        redirect_to room_messages_path(1)
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render action: 'edit' , notice: 'Got some errors'
       end
-    end    
   end
 
   def destroy
