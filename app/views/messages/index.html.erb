@@ -8,6 +8,7 @@
   <%= @room.description %>
 </p>
 
+<% if current_user %>
 <div>
     <%= form_for Message.new, :url=>room_messages_path, remote: true do |f| %>
       <%= f.text_area :body, :class=>'form_control' %>
@@ -15,6 +16,7 @@
       <%= f.submit "Send", :class=>'btn btn-primary' %>
     <% end %>
 </div>
+<% end %>
 
 <div>
   <table class="table table-condensed", id="chat">
