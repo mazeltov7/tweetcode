@@ -7,5 +7,7 @@ class Room < ActiveRecord::Base
     length: {minimum: 1, maximum: 20}
   validates :description,
     length: {maximum: 50}
+  validates :room_status,
+    presence: true
     
 end

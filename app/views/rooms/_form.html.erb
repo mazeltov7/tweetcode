@@ -20,7 +20,11 @@
     <%= f.text_field :description %>
   </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="field">
+    <%= f.label :room_status %>
+    <%= f.select :room_status, ['Working', 'Relax'], include_blank: '選択してください' %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class=>"btn btn-primary" %>
   </div>
 <% end %>

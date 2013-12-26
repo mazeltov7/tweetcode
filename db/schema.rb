@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131219112019) do
+ActiveRecord::Schema.define(version: 20131225184043) do
 
   create_table "beginner_messages", force: true do |t|
     t.text     "body"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20131219112019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "room_status"
   end
 
   create_table "users", force: true do |t|
