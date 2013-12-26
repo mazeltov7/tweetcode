@@ -21,8 +21,8 @@
   </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="field">
-    <%= f.label :room_status %>
-    <%= f.select :room_status, ['Working', 'Relax'], include_blank: '選択してください' %>
+    <%= f.label :room_label %>
+    <%= f.select :room_label, ['Working', 'Relax'], include_blank: '選択してください' %>
   </div>
   <div class="actions">
     <%= f.submit :class=>"btn btn-primary" %>

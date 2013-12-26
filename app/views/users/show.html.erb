@@ -1,18 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>username:</strong>
-  <%= @user.username %>
-</p>
+<table class="table">
+  <tr>
+    <th>username:</th>
+    <td><%= @user.username %></td>
+  </tr>
 
-<p>
-  <strong>status:</strong>
-  <%= @user.status %>
-</p>
+  <tr>
+    <th>status:</th>
+    <td><%= @user.status %></td>
+  </tr>
 
-<p>
-  <strong>profile:</strong>
-  <%= @user.profile %>
-</p>
+  <tr>
+    <th>profile:</th>
+    <td><%= @user.profile %></td>
+  </tr>
+</table>
 
 <%= link_to 'Home', root_url %>

@@ -3,6 +3,13 @@ class RoomsController < ApplicationController
     @rooms = Room.all.order("created_at DESC")
   end
 
+  def working
+    @room = Room.where(:room_label=>"Working").order("created_at DESC")
+  end
+
+  def relax
+  end
+
   def show
     @room = Room.find(params[:id])
   end
@@ -44,4 +51,5 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:name, :description, :user_id)
   end
+
 end

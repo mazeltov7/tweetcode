@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
+      <th>Room Label</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,7 +16,8 @@
     <% @rooms.each do |room| %>
     <tr>
       <td class="text-success"><strong><%=link_to room.name, room_messages_path(room) %></strong></td>
-      <td class="text-success"><%= room.description %></td>
+      <td class="text-success"><%= room.room_label %></td>
+      <td><%= link_to 'Enter', room_messages_path(room) %></td>
       <td><%= link_to 'Details', room %></td>
       <% if current_user == room.user %>
         <td><%= link_to 'Edit', edit_room_path(room) %></td>

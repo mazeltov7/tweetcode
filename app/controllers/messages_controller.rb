@@ -1,5 +1,3 @@
-#coding: utf-8
-
 class MessagesController < ApplicationController
 
   include ActionController::Live
