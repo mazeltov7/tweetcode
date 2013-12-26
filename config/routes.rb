@@ -3,13 +3,16 @@ Tweetcode::Application.routes.draw do
     root :to => "rooms#index"
 
     resources :rooms do
-      resources :messages do
+      collection do
+        get 'working'
+        get 'relax'
+      end
+      resources :messages, :only=>['index', 'create'] do
         collection { get :events }
       end
     end
 
 
-    resources :beginner_message_search, :only =>[:index]
     resources :users, :except => [:index, :new, :create]
 
   match "auth/:provider/callback" => "sessions#callback", :via => :get
