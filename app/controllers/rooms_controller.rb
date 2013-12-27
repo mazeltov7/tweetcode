@@ -42,14 +42,15 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    @book.destroy
+    @room = Room.find(params[:id])
+    @room.destroy
       redirect_to rooms_url
   end
 
   private
 
   def room_params
-    params.require(:room).permit(:name, :description, :user_id)
+    params.require(:room).permit(:name, :description, :user_id, :room_label)
   end
 
 end

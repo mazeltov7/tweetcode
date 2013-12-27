@@ -14,5 +14,9 @@
       <%= f.button :submit, 'Hello world', :class=>"btn btn-primary" %>
     </div>
 
-
 <% end %>
+
+
+<div>
+  <%= link_to 'アカウントを削除', user_path(@user.id), method: :delete, data: {confirm: 'アカウントを削除しますか？'}, :class=>"text-error" %>
+</div>

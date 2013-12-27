@@ -2,5 +2,10 @@
 
 <%= render 'form' %>
 
+
+<div>
+  <%=link_to 'Roomを削除', room_path(@room.id), method: :delete, data: {confirm: 'Roomを削除しますか？'}, :class=>"text-error" %> 
+</div>
+
 <%= link_to 'Show', @room %> |
 <%= link_to 'Back', rooms_path %>

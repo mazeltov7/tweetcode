@@ -1,30 +1,16 @@
-<%= form_for(@room) do |f| %>
-  <% if @room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@room.errors.count, "error") %>nonono this room isn't saved</h2>
+<%= simple_form_for @room do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-        <% @room.errors.full_message.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form_inputs">
+    <%= f.input :name, :required => true %>
+    <%= f.input :description %>
+    <%= f.input :user_id, as: :hidden, :input_html =>{value: current_user.id} %>
+    <%= f.input :room_label, as: :select, collection: ['Working', 'Relax'], include_blank: '選択してください' %>
   </div>
-  <div class="filed">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <div class="field">
-    <%= f.label :room_label %>
-    <%= f.select :room_label, ['Working', 'Relax'], include_blank: '選択してください' %>
-  </div>
-  <div class="actions">
-    <%= f.submit :class=>"btn btn-primary" %>
+  <div class="form_actions">
+    <%= f.button :submit, :class=>"btn btn-primary" %>
   </div>
 <% end %>
+
+
