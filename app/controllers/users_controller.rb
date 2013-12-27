@@ -1,3 +1,4 @@
+# coding:utf-8
 class UsersController < ApplicationController
 
   def show
@@ -19,6 +20,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+      redirect_to rooms_url, notice: 'アカウントを削除しました'
   end
 
   private
