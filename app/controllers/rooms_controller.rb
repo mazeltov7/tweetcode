@@ -35,7 +35,7 @@ class RoomsController < ApplicationController
 
   def update
     if @room.update(room_params)
-      redirect_to @book, notice: 'Room was successfully updated.' 
+      redirect_to @room, notice: 'Room was successfully updated.' 
     else
       render action: 'edit' , notice: 'Got some errors'
     end

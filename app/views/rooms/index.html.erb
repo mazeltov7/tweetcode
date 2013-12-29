@@ -15,10 +15,17 @@
   <tbody>
     <% @rooms.each do |room| %>
     <tr>
-      <td class="text-success"><strong><%=link_to room.name, room_messages_path(room) %></strong></td>
-      <td class="text-success"><%= room.room_label %></td>
-      <td><%= link_to 'Enter', room_messages_path(room) %></td>
-      <td><%= link_to 'Details', room %></td>
+      <% if current_user %>
+        <td class="text-success"><strong><%=link_to room.name, room_messages_path(room) %></strong></td>
+        <td class="text-success"><%= room.room_label %></td>
+        <td><%= link_to 'Enter', room_messages_path(room) %></td>
+        <td><%= link_to 'Details', room %></td>
+      <% else %>
+        <td class="text-success"><strong><%= room.name %></strong></td>
+        <td class="text-success"><%= room.room_label %></td>
+        <td></td>
+        <td></td>
+      <% end %>
       <% if current_user == room.user %>
         <td><%= link_to 'Edit', edit_room_path(room) %></td>
         <td><%= link_to 'Destroy', room, method: :delete, data: {confirm: 'Are you really sure?'} %></td>
@@ -33,4 +40,6 @@
 
 <br>
 
-<%= link_to 'Create New Room', new_room_path %>
+<% if current_user %>
+  <%= link_to 'Create New Room', new_room_path %>
+<% end %>

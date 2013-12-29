@@ -1,6 +1,5 @@
 # coding:utf-8
 
-
 class User < ActiveRecord::Base
   has_many :beginner_messages
   has_many :rooms

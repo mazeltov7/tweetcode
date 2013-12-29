@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131226102019) do
 
-  create_table "beginner_messages", force: true do |t|
-    t.text     "body"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "messages", force: true do |t|
     t.text     "body"
     t.integer  "user_id"

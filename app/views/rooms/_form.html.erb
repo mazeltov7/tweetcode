@@ -7,6 +7,7 @@
     <%= f.input :description %>
     <%= f.input :user_id, as: :hidden, :input_html =>{value: current_user.id} %>
     <%= f.input :room_label, as: :select, collection: ['Working', 'Relax'], include_blank: '選択してください' %>
+    <%= binding.pry %>
   </div>
   <div class="form_actions">
     <%= f.button :submit, :class=>"btn btn-primary" %>
