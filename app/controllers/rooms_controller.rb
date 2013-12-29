@@ -26,7 +26,6 @@ class RoomsController < ApplicationController
     else
       render action: 'new'
     end
-
   end
 
   def edit
@@ -34,6 +33,7 @@ class RoomsController < ApplicationController
   end
 
   def update
+    @room = Room.find(params[:id])
     if @room.update(room_params)
       redirect_to @room, notice: 'Room was successfully updated.' 
     else
